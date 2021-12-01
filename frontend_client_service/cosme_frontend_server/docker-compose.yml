@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  docker-cosme-frontend:
+    image: sam585456525/cosme_frontend
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    command: npm start

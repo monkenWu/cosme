@@ -1,0 +1,75 @@
+version: "3"
+
+services:
+  gateway:
+    image: webdevops/php-nginx-dev:7.4
+    depends_on:
+      - user_service
+    ports:
+      - 7001:80
+    working_dir: /app
+    environment:
+      WEB_DOCUMENT_ROOT: /app/public
+    volumes:
+      - './backend_gateway:/app'
+  user_service:
+    image: webdevops/php-nginx-dev:7.4
+    ports:
+      - 7002:80
+    working_dir: /app
+    environment:
+      WEB_DOCUMENT_ROOT: /app/public
+    volumes:
+      - './backend_user_service:/app'
+  creation_service:
+    image: webdevops/php-nginx-dev:7.4
+    ports:
+      - 7003:80
+    working_dir: /app
+    environment:
+      WEB_DOCUMENT_ROOT: /app/public
+    volumes:
+      - './backend_creation_service:/app'
+  photo_service:
+    image: webdevops/php-nginx-dev:7.4
+    ports:
+      - 7004:80
+    working_dir: /app
+    environment:
+      WEB_DOCUMENT_ROOT: /app/public
+    volumes:
+      - './backend_photo_service:/app'
+      - './photo/Without:/mnt/Without'
+      - './photo/Reference:/mnt/Reference'
+      - './photo/Synthesize:/mnt/Synthesize'
+  makeup_service:
+    build:
+      context: ./backend_makeup_service/.
+      dockerfile: Dockerfile_CPU
+    # runtime: nvidia
+    volumes:
+      - ./backend_makeup_service:/app/service
+      - ./backend_makeup_service/.env:/app/service/.env
+      - ./backend_makeup_service/nginx.conf:/etc/nginx/nginx.conf
+      - ./photo/Without:/mnt/Without
+      - ./photo/Reference:/mnt/Reference
+      - ./photo/Synthesize:/mnt/Synthesize
+    ports:
+      - 7005:80
+  app:
+    build:
+      context: ./frontend_client_service/.
+      dockerfile: Dockerfile
+    ports:
+      - 7010:3000
+  db:
+    image: mysql:5.6
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: cosme
+      MYSQL_DATABASE: cosme
+    ports:
+      - "3306:3306"
+volumes:
+  db_data:

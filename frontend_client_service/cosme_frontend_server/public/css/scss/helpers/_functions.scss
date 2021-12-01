@@ -1,0 +1,36 @@
+%center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+%ball{
+  border-radius: 50%;
+}
+%fillet{
+  border-radius: 100px;
+  width: 100%;
+  &:focus{
+    outline: none;
+  }
+}
+@mixin bg($deg: 90, $c1: $color-4A, $c2: $color-4B){
+  background-image: linear-gradient(#{$deg}deg, $c1, $c2);
+}
+@mixin bgimg($img: '~@/assets/img/undefine.jpg'){
+  background-image: url($img);
+  background-size: cover;
+  background-position: center;
+}
+@mixin txt-over($w: 100%){
+  overflow: hidden;
+  // width: $w;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: $w;
+}
+@mixin hover($color: $dark-pink){
+  transition: all 0.2s;
+  &:hover{
+    color: $color;
+  }
+}

@@ -1,0 +1,134 @@
+// helpers
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/functions";
+@import "~@/assets/scss/helpers/variables";
+@import "~@/assets/scss/helpers/functions";
+@import "~@/assets/scss/helpers/reset";
+@import "~@/assets/scss/views/modal";
+@import "~@/assets/scss/views/photo";
+.layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  // min-height: 100%;
+  @media (max-width: 991px) {
+    flex-direction: column;
+    justify-content: center;
+    @include bg(90, #8be7e3, #fec8da);
+  }
+  @media (min-width: 991px) {
+    @include bg(180, lighten(#8be7e3, 1), lighten(#fec8da, 1));
+  }
+}
+
+.share-content {
+  width: 800px;
+  max-width: 90%;
+  background-color: rgba(#fff, 1);
+  box-shadow: $box-shadow;
+  margin: auto;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  padding: 30px 0px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.tittle {
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.photo-content {
+  display: flex;
+  justify-content: center;
+  .photo-item {
+    margin: 5px 15px;
+    text-align: center;
+    img {
+      width: 200px;
+    }
+    h1 {
+      width: 100%;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .default-user-img {
+      /*我弄不對齊只好加 ml QQ*/
+      margin-left: 10px;
+      height: 200px;
+      background-color: #999;
+      opacity: 0.1;
+      border-radius: 5px;
+      width: 200px;
+      svg {
+        color: #fff;
+        font-size: 120px;
+        margin-top: 40px;
+      }
+    }
+  }
+  @media (max-width: 770px) {
+    flex-direction: column;
+  }
+  .user-photo {
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      box-shadow: $box-shadow;
+    }
+  }
+}
+
+.photo-buttons {
+  display: flex;
+  margin-top: 34px;
+  flex-direction: column;
+  justify-content: center;
+  @media (max-width: 600px) {
+    margin-top: 5px;
+  }
+  label {
+    margin: 10px 10px;
+  }
+  @media (max-width: 600px) {
+    margin: 5px 10px;
+  }
+}
+
+.submit {
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+  background-image: linear-gradient(90deg, $color-4A, $color-4B);
+  span {
+    text-shadow: 1px 1px 5px rgba(#000, 0.3);
+  }
+  &:hover {
+    filter: drop-shadow(3px 3px 5px rgba(#000, 0.2));
+  }
+  @media (max-width: 600px) {
+    width: 75%;
+  }
+}
+
+.cosme-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span{
+    color:#8be7e3;
+  }
+}

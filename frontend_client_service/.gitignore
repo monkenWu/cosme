@@ -1,0 +1,29 @@
+.DS_Store
+node_modules
+cosme_frontend_server/public/mainApp
+cosme_frontend_server/public/share
+cosme_frontend_server/public/sdk
+cosme_mainApp/dist
+
+cosme_frontend_server/ngrok
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+

@@ -1,0 +1,159 @@
+.login{
+  width: 360px;
+  max-width: 95%;
+  background-color: rgba(#fff, .5);
+  margin: auto;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  padding: 30px;
+  h3{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &>svg{
+    font-size: 90px;
+    margin-bottom: 20px;
+  }
+}
+.form-content{
+  width: 100%;
+  .submit{
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+    background-image: linear-gradient(90deg, $color-4A, $color-4B);
+    span{
+      text-shadow: 1px 1px 5px rgba(#000, .3);
+    }
+    &:hover{
+      filter:drop-shadow(3px 3px 5px rgba(#000, .2));
+    }
+  }
+}
+.input-box{
+  position: relative;
+  display: flex;
+  align-items: center;
+  svg{
+    position: absolute;
+    left: 15px;
+    z-index: 10;
+  }
+  .view{
+    display: block;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    transition: .1s;
+    svg{
+      position: static;
+      transition: .2s;
+    }
+  }
+  input::placeholder {
+    color: #bbb;
+  }
+  input, button{
+    padding: 10px 40px;
+    @extend %fillet;
+    border: none;
+    height: 45px;
+    &:focus{
+      outline: none;
+      filter:drop-shadow(3px 3px 5px rgba($color-1A, .8));
+      svg{
+        color: $color-2B;
+      }
+    }
+    &:-webkit-autofill{
+      background-color: #fff !important;
+    }
+  }
+  &.active{
+    svg:not(.fa-eye-slash):not(.fa-eye){
+      color: $color-2B !important;
+    }
+  }
+}
+.footer-input{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .form-check-label{
+    cursor: pointer;
+  }
+}
+.hr-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+  h4{
+    color: #999;
+    margin-bottom: 2px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  &::before, &::after{
+    content: '';
+    height: 1px;
+    flex-grow: 1;
+    display: block;
+    background-color: #999;
+  }
+}
+.social-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  ul{
+    display: flex;
+    margin-right: 15px;
+    button{
+      border: none;
+      width: 45px;
+      height: 45px;
+      @extend %center;
+      @extend %ball;
+      background-color: #fff;
+      transition: all 0.2s ease-in-out;
+      &:hover{
+        transform: scale(0.9, 0.9);
+      }
+    }
+    li{
+      margin-right: 5px;
+    }
+    .fb svg{
+      color: #45578f;
+    }
+    .google svg{
+      color: #ea4335;
+    }
+    .twitter svg{
+      color: #2daae2;
+    }
+  }
+  button{
+    height: 45px;
+    @extend %fillet;
+    background: transparent;
+    border: 2px solid #ccc;
+    color: #999;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+      border-color: $color-2A;
+      color: $color-2B;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+FROM floydhub/pytorch:1.5.0-py3.55
+
+RUN pip install --upgrade pip
+RUN pip install numpy
+RUN pip install Pillow
+RUN pip install torchgpipe
+RUN pip install matplotlib
+RUN pip install fvcore
+RUN pip install fire
+RUN pip install requests
+RUN pip install opencv-python
+RUN pip install flask
+RUN pip install uwsgi
+RUN pip install python-dotenv
+
+COPY nginx.conf /etc/nginx
+
+EXPOSE 9090:80
+
+CMD ["/bin/bash", "-c","service nginx start && cd /app/service && uwsgi --socket 127.0.0.1:3031 --wsgi-file app.py --callable app --processes 1 --threads 8"]
+#CMD ["service nginx start","","uwsgi", "--show-config"]

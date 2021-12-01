@@ -1,0 +1,26 @@
+# 在一切開始前，我們要先建置 pusher 的環境
+before_script:
+  # 如果 ssh-agent 不存在，更新 apt-get 並且安裝 openssh-client
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  # 當運行 ssh-agent -s 時，會輸出一些 command, 但是他們並還沒有被執行，所以必須使用 eval ，他可以用來執行迭代運算
+  - eval $(ssh-agent -s)
+  # 將 $SSH_PRIVATE_KEY 加到 ssh agent
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  # 在 docker container 中，建立 .ssh 資料夾
+  - mkdir -p /root/.ssh
+  # 設定權限
+  - chmod 700 /root/.ssh
+  - apt-get update
+  - apt-get install zip -y
+
+stages:
+  - deploy
+
+project-deploy: 
+  stage: deploy
+  script:
+    - zip -r ../frontend.zip ./
+    - scp -o StrictHostKeyChecking=no ../frontend.zip root@35.206.200.250:/home/cd
+    - ssh root@35.206.200.250 "sudo service apache2 stop && sudo forever stop /var/www/cosme.dev/cosme_frontend_server/bin/www && sudo cp -r  /var/www/cosme.dev/logs /home/cd/logs && sudo rm -r /var/www/cosme.dev && sudo mkdir /var/www/cosme.dev && sudo cp -r /home/cd/logs /var/www/cosme.dev/logs && sudo unzip /home/cd/frontend.zip -d /var/www/cosme.dev && cd /var/www/cosme.dev/cosme_mainApp && sudo npm install && sudo npm run build:user && sudo npm run build:share && cd /var/www/cosme.dev/cosme_sdk && sudo npm install && sudo npm run build && cd /var/www/cosme.dev/cosme_frontend_server && sudo npm install && sudo rm -r /home/cd/logs && sudo rm /home/cd/frontend.zip && sudo service apache2 start && sudo forever --minUptime 5000 --spinSleepTime 3000 start /var/www/cosme.dev/cosme_frontend_server/bin/www"
+  only:
+    - master

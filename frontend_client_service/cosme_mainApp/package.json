@@ -1,0 +1,100 @@
+{
+  "name": "cosme_admin",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "lint": "vue-cli-service lint",
+    "build:shop": "vue-cli-service build --dest dist/shop src/shop/main.js",
+    "build:user": "export COSME_MODULE=mainApp && vue-cli-service build --dest ../cosme_frontend_server/public/mainApp src/user/main.js",
+    "build:share": "export COSME_MODULE=share && vue-cli-service build --dest ../cosme_frontend_server/public/share src/share/main.js",
+    "serve:shop": "vue-cli-service serve src/shop/main.js",
+    "serve:user": "vue-cli-service serve src/user/main.js",
+    "serve:share": "vue-cli-service serve src/share/main.js",
+    "serve:sdk": "vue-cli-service serve src/sdk/main.js",
+    "build:all": "npm run build:user && npm run build:share",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "@chenfengyuan/vue-qrcode": "^1.0.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-brands-svg-icons": "^5.13.1",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "5.13.1",
+    "@fortawesome/vue-fontawesome": "^0.1.10",
+    "@johmun/vue-tags-input": "^2.1.0",
+    "@types/jest": "^26.0.14",
+    "animate.css": "^4.1.0",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "chart.js": "^2.9.3",
+    "core-js": "^3.6.5",
+    "face-api.js": "^0.22.2",
+    "jquery": "^3.5.1",
+    "localforage": "^1.9.0",
+    "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
+    "sass-loader": "^9.0.2",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "vee-validate": "^3.3.8",
+    "vue": "^2.6.12",
+    "vue-chartjs": "^3.5.1",
+    "vue-i18n": "^8.20.0",
+    "vue-image-lightbox": "^7.1.3",
+    "vue-lazyload": "^1.3.3",
+    "vue-loading-overlay": "^3.3.2",
+    "vue-router": "^3.3.4",
+    "vue-star-rating": "^1.6.1",
+    "vue-sweetalert2": "^3.0.8",
+    "vuejs-clipper": "^2.1.0",
+    "vuescroll": "^4.16.1",
+    "vuewordcloud": "^18.7.12",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "^4.4.0",
+    "@vue/cli-plugin-eslint": "^4.4.0",
+    "@vue/cli-plugin-typescript": "^4.5.6",
+    "@vue/cli-service": "^4.4.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "axios-mock-adapter": "^1.18.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "jest": "^26.4.2",
+    "typescript": "~3.9.3",
+    "vue-template-compiler": "^2.6.12",
+    "worker-loader": "^3.0.3"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true,
+      "jest": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "airbnb-base",
+      "@vue/typescript"
+    ],
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    },
+    "rules": {
+      "linebreak-style": "off",
+      "max-len": "off",
+      "no-param-reassign": "off",
+      "radix": "off"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

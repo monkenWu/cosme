@@ -1,0 +1,125 @@
+.history{
+  margin-top: 25px;
+  .item{
+    box-shadow: 1px 1px 3px rgba(#000000, .3);
+    background-color: #f3f3f3;
+    border-radius: 5px;
+  }
+  .picture{
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    @include bgimg;
+    .brand-name{
+      position: absolute;
+      right: -10px;
+      bottom: 10%;
+      @include bg(90, rgba($color-4A, .9), rgba($color-4B, .9));
+      font-size: 12px;
+      padding: 5px;
+      text-align: center;
+      min-width: 110px;
+      border-radius: 3px;
+      box-shadow: 1px 1px 3px rgba(#000000, .3);
+      color: #555;
+    }
+    figure{
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        border-radius: 5px;
+        width: 100%;
+        transition: all .3s ease-in-out;
+      }
+    }
+    &:hover{
+      img{
+        transform: scale(1.1, 1.1);
+      }
+    }
+  }
+  .text-con{
+    padding: 10px;
+    h3{
+      color: $dark-purple;
+      cursor: pointer;
+      margin-bottom: 15px;
+      font-weight: bold;
+      @include txt-over;
+      @include hover;
+    }
+  }
+  .btn-con{
+    display: flex;
+    justify-content: space-between;
+    .download{
+      font-size: 14px;
+      color: #999;
+      @include hover;
+    }
+  }
+}
+.class-content{
+  .list-item{
+    display: flex;
+    padding-top: 7px;
+    margin-top: 7px;
+    border-top: 1px dashed #ccc;
+    &:nth-child(1) {
+      border: none;
+      margin-top: 0;
+    }
+  }
+  .picture{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    transform: scale(1, 1);
+    img{
+      width: 100%;
+    }
+    .no_pic{
+      background: #eee;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    &:hover{
+      transform: scale(.95, .95);
+    }
+    @media (min-width: 768px){
+      width: 80px;
+      figure{
+        width: 50%;
+        padding: 2.5%;
+      }
+    }
+    @media (max-width: 767px){
+      figure{
+        display: none;
+        width: 60px;
+        &:nth-child(1){
+          display: block;
+        }
+      }
+    }
+  }
+  .text-article{
+    flex: 1;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    .title{
+      font-size: 18px;
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+.photo-content {
+  .picture{
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    @include bgimg;
+    h4{
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      font-size: 25px;
+      color: $color-1A;
+      box-shadow: 1px 1px 3px rgba(#000000, .2);
+      @extend %ball;
+    }
+    img{
+      width: 100%;
+    }
+    &:hover{
+      .hover-content{
+        opacity: 1;
+        z-index: 1;
+        article{
+          display: block;
+          opacity: 1;
+          transform: scale(1, 1);
+        }
+      }
+    }
+  }
+  .hover-content{
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include bg(45, rgba($color-4A, .85), rgba($color-4B, .85));
+    .btn{
+      display: block;
+      box-shadow: 1px 1px 3px rgba(#000000, .2);
+      text-shadow: 1px 1px 3px rgba(#000000, .2);
+    }
+    article{
+      transition: all 0.2s ease-in-out .3s;
+      transform: scale(.8, .8);
+      text-align: center;
+      opacity: 0;
+    }
+  }
+  .box{
+    display: flex;
+    position: relative;
+    color: #999;
+    font-weight: bold;
+    margin: 8px 3px;
+    cursor: pointer;
+    svg{
+      margin-right: 5px;
+    }
+    .fa-check{
+      position: absolute;
+      color: $color-4B;
+      bottom: 2px;
+      left: 2px;
+      top: 0px;
+    }
+    &.default{
+      color: $color-1B;
+      .fa-circle{
+        color: #999;
+      }
+    }
+  }
+  .add-con{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 2px dashed #999;
+    color: #999;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    img{
+      width: 100%;
+    }
+    svg{
+      position: absolute;
+      font-size: 24px;
+    }
+    &:hover{
+      border-color: $color-2B;
+      color: $color-2B;
+    }
+  }
+}
+.photo{
+  margin-top: 25px;
+}

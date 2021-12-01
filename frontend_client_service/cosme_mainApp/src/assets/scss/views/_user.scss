@@ -1,0 +1,123 @@
+.user-content{
+  .userInfo{
+    width: 100%;
+    tr{
+      border-bottom: 1px dashed #ccc;
+    }
+    th{
+      color: #a3a4d4;
+      padding: 15px 10px;
+      white-space: nowrap;
+    }
+    td{
+      width: 100%;
+      padding: 15px 10px;
+    }
+    @media (max-width: 575px){
+      tr{
+        display: flex;
+        flex-direction: column;
+      }
+      th{
+        padding-bottom: 5px;
+      }
+      td{
+        padding-top: 5px;
+      }
+    }
+  }
+  .photo{
+    @extend %center;
+    flex-direction: column;
+    label{
+      cursor: pointer;
+    }
+    .figure{
+      height: 110px;
+      width: 110px;
+      position: relative;
+      margin-bottom: 15px;
+      border: 5px solid #fff;
+      box-shadow: 1px 1px 5px rgba(#000, .3);
+      overflow: hidden;
+      @extend %center;
+      @extend %ball;
+      @include bgimg('~@/assets/img/bg/user-img-null.jpg');
+      figure{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+    }
+    .btns{
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      color: $dark-purple;
+      p{
+        margin: 0 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.user-form{
+  background-color: rgba(#fff, .8);
+  border-radius: 8px;
+  svg{
+    color: #999;
+  }
+  .signup-content{
+    max-width: 600px;
+    margin: auto;
+  }
+  .item-con{
+    display: block;
+    p{
+      margin: 5px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    span{
+      display: block;
+      text-align: right;
+      padding: 5px;
+    }
+  }
+  .radio-style{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    label{
+      cursor: pointer;
+    }
+}
+  .submit{
+    @extend %center;
+    button{
+      @include bg(90, $color-1A, $color-1B);
+      color: #fff;
+      transition: .3s ease-in-out;
+      &:hover{
+        filter:drop-shadow(3px 3px 5px rgba(#000, .2));
+      }
+    }
+  }
+  &.signup{
+    max-width: 90%;
+    width: 800px;
+    padding: 30px 15px;
+  }
+  &.edit{
+    .input-box {
+      input{
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+.authorize{
+  
+}
+.authorize-table{
+  .comBio{
+    color: #777;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  th, td{
+    vertical-align:middle;
+    &:not(.comBio){
+      white-space: nowrap;
+    }
+  }
+  @media (min-width: 768px){
+    .logo{
+      width: 200px;
+    }
+  }
+  @media (max-width: 767px){
+    thead{
+      display: none;
+    }
+    tbody{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    tr{
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #f3f3f3;
+      border-radius: 10px;
+      flex: 0 0 48%;
+      margin-right: 1%;
+      margin-left: 1%;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .number{
+      flex: 0 0 10%;
+      display: none;
+      border: none;
+    }
+    .logo{
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 150px;
+      background-color: #f3f3f3;
+    }
+    .com{
+      padding: 0;
+      border: none;
+      a{
+        position: absolute;
+        top: 140px;
+        padding: 10px 15px;
+        transform: translateY(-100%);
+        background-color: rgba(#fff, .8);
+        // @include bg(45, rgba($color-3A, .85), rgba($color-3B, .85));
+        font-size: 12px;
+        color: #333;
+        border-radius: 0 50px 50px 0;
+        box-shadow: 1px 1px 5px rgba(#000, .1);
+      }
+    }
+    .date{
+      @include txt-over;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      &::before{
+        content: '日期:';
+        margin-right: 5px;
+        color: #999;
+      }
+    }
+    .comBio{
+      flex: 1;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .cancel{
+      padding: 3px 0;
+      @include bg(90, $color-4A, $color-4B);
+      button{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 1;
+      }
+    }
+  }
+  @media (max-width: 575px){
+    tr{
+      flex: 0 1 100%;
+    }
+  }
+}
