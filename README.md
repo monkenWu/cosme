@@ -36,9 +36,9 @@
 6. 依序對 CodeIgniter4 之專案下達指令取回 Composer Libraries
     ```
     docker-compose exec gateway composer install
-    docker-compose exec gateway creation_service install
-    docker-compose exec gateway photo_service install
-    docker-compose exec gateway user_service install
+    docker-compose exec creation_service composer install
+    docker-compose exec photo_service composer install
+    docker-compose exec user_service composer install
     ```
 7. 專案預設連接埠為
     * 前端網頁 `localhost:7010`
