@@ -1,9 +1,9 @@
 # cosme
 以 CodeIgniter4、Vue.js、Flask 開發之上妝系統
 
-[系統 Demo](https://cosme.sdpmlab.org/mainApp/)
+[系統 Demo](https://cosme.monken.tw/mainApp/)
 
-[分享功能 Demo](https://cosme.sdpmlab.org/share/?key=26655aaf465115b43fcb29a613805faac0b6c98c)
+[分享功能 Demo]([https://cosme.sdpmlab.org/share/?key=26655aaf465115b43fcb29a613805faac0b6c98c](https://cosme.monken.tw/share/?key=da4b9237bacccdf19c0760cab7aec4a8359010b0))
 
 ## 簡介
 
